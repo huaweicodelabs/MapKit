@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/mapInPolygon"
+        android:name="com.huawei.hms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="500dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnAddPolygon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AddPolygon"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnRemovePolygon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RemovePolygon"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:id="@+id/polygonShown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="get is shown here ."
+                    android:paddingLeft="10dp"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/oneLatitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="one-latitude"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+
+                <EditText
+                    android:id="@+id/oneLongtitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="one-longtitude"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnSetPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SetPoints"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnGetPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GetPoints"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSetStokeColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SetStoke"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnGetStokeColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GetStoke"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnSetFill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SetFill"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnGetFill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GetFill"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/polygonTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Edit the tag"
+                    android:singleLine="true"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnSetTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SetTag"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnGetTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GetTag"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnAddClickEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AddClickEvent"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSetClickableTrue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SetClickableTrue"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btnSetClickableFalse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SetClickableFalse"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
