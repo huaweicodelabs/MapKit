@@ -21,11 +21,11 @@
 package com.huawei.mapkitsample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.maps.HuaweiMap
 import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.SupportMapFragment
-import com.huawei.hms.maps.util.LogM
 
 /**
  * Map control related
@@ -45,7 +45,7 @@ class ControlsDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(paramHuaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = paramHuaweiMap
         hMap?.isMyLocationEnabled = true
     }

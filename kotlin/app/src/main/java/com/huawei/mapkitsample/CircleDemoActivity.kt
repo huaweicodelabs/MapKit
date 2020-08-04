@@ -24,6 +24,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.maps.CameraUpdateFactory
 import com.huawei.hms.maps.HuaweiMap
@@ -32,7 +33,6 @@ import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.Circle
 import com.huawei.hms.maps.model.CircleOptions
 import com.huawei.hms.maps.model.LatLng
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.R.string.*
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsEdit
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsRight
@@ -186,7 +186,7 @@ class CircleDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(paramHuaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = paramHuaweiMap
         hMap?.apply {
             isMyLocationEnabled = true
@@ -275,7 +275,7 @@ class CircleDemoActivity : AppCompatActivity(), OnMapReadyCallback {
                         mCircle?.strokeWidth = width.toFloat()
                         toast("set Circle stroke Width: ${mCircle?.strokeWidth}")
                     } catch (e: IllegalArgumentException) {
-                        LogM.e(TAG, "IllegalArgumentException $e")
+                        Log.e(TAG, "IllegalArgumentException $e")
                         toast("IllegalArgumentException")
                     }
                 }

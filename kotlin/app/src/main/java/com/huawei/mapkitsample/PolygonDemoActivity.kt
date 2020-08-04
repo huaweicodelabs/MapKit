@@ -23,6 +23,7 @@ package com.huawei.mapkitsample
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.maps.CameraUpdateFactory
 import com.huawei.hms.maps.HuaweiMap
@@ -31,7 +32,6 @@ import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.LatLng
 import com.huawei.hms.maps.model.Polygon
 import com.huawei.hms.maps.model.PolygonOptions
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsEdit
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsRight
 import com.huawei.mapkitsample.utils.MapUtils
@@ -145,7 +145,7 @@ class PolygonDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(paramHuaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = paramHuaweiMap
         hMap?.apply {
             isMyLocationEnabled = true
@@ -159,7 +159,7 @@ class PolygonDemoActivity : AppCompatActivity(), OnMapReadyCallback {
                 .fillColor(Color.GREEN)
                 .strokeColor(Color.BLACK)
         )
-        hMap?.setOnPolygonClickListener { LogM.i(TAG, "addPolygon and onPolygonClick start ") }
+        hMap?.setOnPolygonClickListener { Log.i(TAG, "addPolygon and onPolygonClick start ") }
     }
 
     fun setPoints() {

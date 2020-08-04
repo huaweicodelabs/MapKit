@@ -28,7 +28,6 @@ import com.huawei.hms.maps.HuaweiMap
 import com.huawei.hms.maps.MapView
 import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.model.LatLng
-import com.huawei.hms.maps.util.LogM
 
 /**
  * map activity entrance class
@@ -42,7 +41,7 @@ class MapViewDemoActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-        LogM.d(TAG, "onCreate:")
+        Log.d(TAG, "onCreate:")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mapview_demo)
         mMapView = findViewById(R.id.mapView)

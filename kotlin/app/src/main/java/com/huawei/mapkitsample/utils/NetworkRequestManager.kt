@@ -17,8 +17,8 @@
 
 package com.huawei.mapkitsample.utils
 
+import android.util.Log
 import com.huawei.hms.maps.model.LatLng
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.utils.NetClient.Companion.netClient
 import org.json.JSONException
 import org.json.JSONObject
@@ -58,7 +58,7 @@ class NetworkRequestManager {
         ) {
             var count = count
             val curCount = ++count
-            LogM.e(TAG, "current count: $curCount")
+            Log.e(TAG, "current count: $curCount")
             Thread(Runnable {
                 val response =
                     netClient!!.getWalkingRoutePlanningResult(
@@ -127,7 +127,7 @@ class NetworkRequestManager {
         ) {
             var count = count
             val curCount = ++count
-            LogM.e(TAG, "current count: $curCount")
+            Log.e(TAG, "current count: $curCount")
             Thread(Runnable {
                 val response =
                     netClient!!.getBicyclingRoutePlanningResult(
@@ -199,7 +199,7 @@ class NetworkRequestManager {
         ) {
             var count = count
             val curCount = ++count
-            LogM.e(TAG, "current count: $curCount")
+            Log.e(TAG, "current count: $curCount")
             Thread(Runnable {
                 val response =
                     netClient!!.getDrivingRoutePlanningResult(

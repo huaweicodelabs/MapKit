@@ -20,7 +20,9 @@
 
 package com.huawei.mapkitsample
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.huawei.hms.maps.CameraUpdateFactory
@@ -31,8 +33,6 @@ import com.huawei.hms.maps.model.BitmapDescriptorFactory
 import com.huawei.hms.maps.model.LatLng
 import com.huawei.hms.maps.model.Marker
 import com.huawei.hms.maps.model.MarkerOptions
-import com.huawei.hms.maps.util.LogM
-import com.huawei.hms.maps.util.ResourceBitmapDescriptor
 import kotlinx.android.synthetic.main.activity_supportmapfragment_demo.*
 
 /**
@@ -50,7 +50,7 @@ class SupportMapDemoActivity : AppCompatActivity(), OnMapReadyCallback {
         private val Shanghai = LatLng(48.7, 2.12)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-        LogM.d(TAG, "onCreate: ")
+        Log.d(TAG, "onCreate: ")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_supportmapfragment_demo)
         mSupportMapFragment = supportFragmentManager.findFragmentById(R.id.supportMap) as SupportMapFragment
@@ -89,14 +89,14 @@ class SupportMapDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: HuaweiMap) {
-        LogM.d(TAG, "onMapReady: ")
+        Log.d(TAG, "onMapReady: ")
         hMap = map
 
         hMap?.apply {
             uiSettings?.isCompassEnabled = true
             moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(48.893478, 2.334595), 14f))
             setOnMapLongClickListener {
-                LogM.d(
+                Log.d(
                     TAG,
                     "onMapLongClick: latLng " + " please input latLng"
                 )
@@ -206,10 +206,7 @@ class SupportMapDemoActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun setIcon() {
             mBeijing?.let {
-                val bitmap = ResourceBitmapDescriptor.drawableToBitmap(
-                    this,
-                    ContextCompat.getDrawable(this, R.drawable.badge_tr)
-                )
+                val bitmap = BitmapFactory.decodeResource(resources, R.drawable.badge_tr)
                 val bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(bitmap)
                 mBeijing?.setIcon(bitmapDescriptor)
             }

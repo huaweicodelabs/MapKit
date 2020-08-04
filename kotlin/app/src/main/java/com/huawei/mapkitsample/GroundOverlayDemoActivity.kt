@@ -24,6 +24,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.huawei.hms.maps.CameraUpdateFactory
@@ -31,7 +32,6 @@ import com.huawei.hms.maps.HuaweiMap
 import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.*
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.R.string.filePathText
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsEdit
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsRight
@@ -101,7 +101,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
          * Remove the Groudoverlay
          */
         btnRemoveGroundOverlay.setOnClickListener {
-            LogM.d(TAG, "removeGroudoverlay: ")
+            Log.d(TAG, "removeGroudoverlay: ")
                 overlay?.let {overlay?.remove()  }
         }
         /**
@@ -169,7 +169,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(paramHuaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = paramHuaweiMap
         hMap?.apply {
             isMyLocationEnabled = true
@@ -187,7 +187,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             return
         }
         overlay?.remove()
-        LogM.d(TAG, "addFromAsset: ")
+        Log.d(TAG, "addFromAsset: ")
         val options =
             GroundOverlayOptions().position(MapUtils.FRANCE2, 50f, 50f)
                 .image(BitmapDescriptorFactory.fromAsset("images/niuyouguo.jpg"))
@@ -204,7 +204,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             return
         }
         overlay?.remove()
-        LogM.d(TAG, "addFromResource: ")
+        Log.d(TAG, "addFromResource: ")
         val options =
             GroundOverlayOptions().position(MapUtils.FRANCE2, 50f, 50f)
                 .image(BitmapDescriptorFactory.fromResource(R.drawable.niuyouguo))
@@ -220,7 +220,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             return
         }
         overlay?.remove()
-        LogM.d(TAG, "addFromBitmap: ")
+        Log.d(TAG, "addFromBitmap: ")
         val vectorDrawable =
             ResourcesCompat.getDrawable(resources, R.drawable.niuyouguo, null)
         val bitmap = Bitmap.createBitmap(
@@ -244,7 +244,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             return
         }
         overlay?.remove()
-        LogM.d(TAG, "addFromFile: ")
+        Log.d(TAG, "addFromFile: ")
         var out: FileOutputStream? = null
         val fileName = "maomao.jpg"
         val localFile = filesDir.toString() + File.separator + fileName
@@ -254,12 +254,12 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             out = FileOutputStream(File(localFile))
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
         } catch (e: FileNotFoundException) {
-            LogM.d(
+            Log.d(
                 TAG,
                 "addFromFile FileNotFoundException: $e"
             )
         } catch (e: IOException) {
-            LogM.d(
+            Log.d(
                 TAG,
                 "addFromFile IOException: $e"
             )
@@ -269,7 +269,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
                         out.close() }
 
             } catch (e: IOException) {
-                LogM.d(
+                Log.d(
                     TAG,
                     "addFromFile close fileOutputStream IOException: $e"
                 )
@@ -289,7 +289,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
         if (hMap == null) {
             return
         }
-        LogM.d(TAG, "addFromPath")
+        Log.d(TAG, "addFromPath")
         overlay?.remove()
         val path = getString(filePathText)
         var out: FileOutputStream? = null
@@ -299,7 +299,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             out = FileOutputStream(File(path))
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
         } catch (e: Exception) {
-            LogM.d(
+            Log.d(
                 TAG,
                 "addFromFile FileNotFoundException: $e"
             )
@@ -310,7 +310,7 @@ class GroundOverlayDemoActivity : AppCompatActivity(), OnMapReadyCallback {
                     it.close()
                 }
             } catch (e: IOException) {
-                LogM.d(
+                Log.d(
                     TAG,
                     "addFromFile close fileOutputStream IOException: $e"
                 )

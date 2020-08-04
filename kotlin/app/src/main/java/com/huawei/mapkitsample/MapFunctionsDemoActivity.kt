@@ -21,12 +21,12 @@
 package com.huawei.mapkitsample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.maps.CameraUpdateFactory
 import com.huawei.hms.maps.HuaweiMap
 import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.SupportMapFragment
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.utils.MapUtils
 import com.huawei.mapkitsample.utils.Utill.toast
 import kotlinx.android.synthetic.main.acitivity_map_founctions_demo.*
@@ -147,7 +147,7 @@ class MapFunctionsDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(paramHuaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = paramHuaweiMap
         hMap?.apply {
             isMyLocationEnabled = true
@@ -173,7 +173,7 @@ class MapFunctionsDemoActivity : AppCompatActivity(), OnMapReadyCallback {
                 maxZoomlevel.error = "Please make sure the maxZoom is right"
             } else {
                 val maxZoom = (maxZoomlevel?.text.toString()).toFloat()
-                LogM.i(TAG, "setMaxZoomPreference: $maxZoom")
+                Log.i(TAG, "setMaxZoomPreference: $maxZoom")
                     hMap?.let {
                         hMap?.setMaxZoomPreference(maxZoom)
                     }

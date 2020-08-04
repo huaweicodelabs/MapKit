@@ -25,6 +25,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.huawei.hms.maps.CameraUpdateFactory
@@ -35,7 +36,6 @@ import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.CameraPosition
 import com.huawei.hms.maps.model.LatLng
 import com.huawei.hms.maps.model.LatLngBounds
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.utils.Utill.toast
 import kotlinx.android.synthetic.main.activity_camera_demo.*
 
@@ -78,8 +78,8 @@ class CameraDemoActivity : AppCompatActivity(), OnMapReadyCallback, OnCameraMove
             val position = hMap?.cameraPosition
             toast(position.toString())
             // Displays the maximum zoom level and minimum scaling level of the current camera.
-            LogM.i(TAG, position.toString())
-            LogM.i(
+            Log.i(TAG, position.toString())
+            Log.i(
                 TAG,
                 "MaxZoomLevel:" + hMap?.maxZoomLevel + " MinZoomLevel:" + hMap?.minZoomLevel
             )
@@ -170,7 +170,7 @@ class CameraDemoActivity : AppCompatActivity(), OnMapReadyCallback, OnCameraMove
     }
 
     override fun onMapReady(huaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = huaweiMap
         if (isGPSOpen(this)) {
             hMap?.apply {
@@ -188,27 +188,27 @@ class CameraDemoActivity : AppCompatActivity(), OnMapReadyCallback, OnCameraMove
             setOnCameraMoveStartedListener(this@CameraDemoActivity)
             setOnCameraIdleListener(this@CameraDemoActivity)
             setOnCameraMoveListener(this@CameraDemoActivity)
-            setOnMapLoadedCallback { LogM.i(TAG, "onMapLoaded:successful") }
+            setOnMapLoadedCallback { Log.i(TAG, "onMapLoaded:successful") }
         }
     }
 
     // * Callback when the camera starts moving
     override fun onCameraMoveStarted(reason: Int) {
-        LogM.i(TAG, "onCameraMoveStarted: successful")
+        Log.i(TAG, "onCameraMoveStarted: successful")
         if (reason == OnCameraMoveStartedListener.REASON_DEVELOPER_ANIMATION) {
-            LogM.i(TAG, "onCameraMove")
+            Log.i(TAG, "onCameraMove")
         }
     }
 
     //* Callback when the camera move ends
     override fun onCameraIdle() {
         cameraChange.text = hMap?.cameraPosition.toString()
-        LogM.i(TAG, "onCameraIdle: successful")
+        Log.i(TAG, "onCameraIdle: successful")
     }
 
     //* Set camera move callback
     override fun onCameraMove() {
-        LogM.i(TAG, "onCameraMove: successful")
+        Log.i(TAG, "onCameraMove: successful")
     }
 
     //* Set the map camera based on the latitude and longitude, zoom factor, tilt angle, and rotation angle
@@ -253,10 +253,10 @@ class CameraDemoActivity : AppCompatActivity(), OnMapReadyCallback, OnCameraMove
             val cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition)
             hMap?.moveCamera(cameraUpdate)
         } catch (e: IllegalArgumentException) {
-            LogM.e(TAG, "IllegalArgumentException $e")
+            Log.e(TAG, "IllegalArgumentException $e")
             toast("IllegalArgumentException")
         } catch (e: NullPointerException) {
-            LogM.e(TAG, "NullPointerException $e")
+            Log.e(TAG, "NullPointerException $e")
             toast("NullPointerException")
         }
     }

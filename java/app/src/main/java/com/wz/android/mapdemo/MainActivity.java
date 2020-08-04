@@ -17,7 +17,6 @@ import com.huawei.hms.maps.model.CircleOptions;
 import com.huawei.hms.maps.model.LatLng;
 import com.huawei.hms.maps.model.Marker;
 import com.huawei.hms.maps.model.MarkerOptions;
-import com.huawei.hms.maps.util.LogM;
 
 import android.Manifest;
 import android.content.Context;
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LogM.d(TAG, "map onCreate:");
+        Log.d(TAG, "map onCreate:");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

@@ -21,6 +21,7 @@
 package com.huawei.mapkitsample
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
@@ -37,7 +38,6 @@ import com.huawei.hms.maps.HuaweiMap.OnMarkerDragListener
 import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.*
-import com.huawei.hms.maps.util.ResourceBitmapDescriptor
 import com.huawei.mapkitsample.utils.Utill.toast
 import kotlinx.android.synthetic.main.activity_marker_demo.*
 import kotlinx.android.synthetic.main.custom_info_contents.*
@@ -67,7 +67,7 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_marker_demo)
         val fragment =
-            supportFragmentManager.findFragmentById(R.id.mapfragment_markerdemo)
+                supportFragmentManager.findFragmentById(R.id.mapfragment_markerdemo)
         if (fragment is SupportMapFragment) {
             mSupportMapFragment = fragment
             mSupportMapFragment.getMapAsync(this)
@@ -230,7 +230,7 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
             }
             imgv_badge.setImageResource(
-                markerBadge
+                    markerBadge
             )
         }
 
@@ -246,10 +246,10 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             } else {
                 val titleText = SpannableString(markerTitle)
                 titleText.setSpan(
-                    ForegroundColorSpan(Color.BLUE),
-                    0,
-                    titleText.length,
-                    0
+                        ForegroundColorSpan(Color.BLUE),
+                        0,
+                        titleText.length,
+                        0
                 )
                 titleView?.text = titleText
             }
@@ -257,18 +257,18 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
 
         private fun setMarkerSnippet(marker: Marker, view: View) {
             var markerSnippet = marker.snippet
-                marker.tag?.let {
+            marker.tag?.let {
                 markerSnippet = marker.tag as String
             }
             val snippetView =
-                view.findViewById<View>(R.id.txtv_snippett) as TextView
+                    view.findViewById<View>(R.id.txtv_snippett) as TextView
             if (markerSnippet != null && markerSnippet.isNotEmpty()) {
                 val snippetText = SpannableString(markerSnippet)
                 snippetText.setSpan(
-                    ForegroundColorSpan(Color.RED),
-                    0,
-                    markerSnippet.length,
-                    0
+                        ForegroundColorSpan(Color.RED),
+                        0,
+                        markerSnippet.length,
+                        0
                 )
                 snippetView.text = snippetText
             } else {
@@ -289,22 +289,22 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
         if (mParis == null && mOrsay == null && mSerris == null) { // Uses a colored icon.
             mParis = hMap?.addMarker(
                     MarkerOptions().position(PARIS).title("paris").snippet(
-                        "hello"
+                            "hello"
                     ).clusterable(true)
-                )
+            )
             mOrsay = hMap?.addMarker(
-                MarkerOptions().position(ORSAY)
-                    .alpha(0.5f)
-                    .title("Orsay")
-                    .snippet("hello")
-                    .clusterable(true)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.badge_ph))
+                    MarkerOptions().position(ORSAY)
+                            .alpha(0.5f)
+                            .title("Orsay")
+                            .snippet("hello")
+                            .clusterable(true)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.badge_ph))
             )
             mSerris = hMap?.addMarker(
-                MarkerOptions().position(SERRIS)
-                    .title("Serris")
-                    .snippet("Can be dragged after DragMarker.")
-                    .clusterable(true)
+                    MarkerOptions().position(SERRIS)
+                            .title("Serris")
+                            .snippet("Can be dragged after DragMarker.")
+                            .clusterable(true)
             )
             hMap?.setOnMarkerClickListener { marker ->
                 val clusterable = marker.isClusterable
@@ -316,11 +316,11 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
         hMap?.setOnMapLongClickListener { latLng ->
             Log.d(TAG, "Map is long clicked.")
             val mMarker =
-                hMap!!.addMarker(MarkerOptions().position(latLng).title("I am Marker!"))
+                    hMap!!.addMarker(MarkerOptions().position(latLng).title("I am Marker!"))
             markerList!!.add(mMarker)
             Log.d(
-                TAG,
-                "markerList size is." + markerList?.size
+                    TAG,
+                    "markerList size is." + markerList?.size
             )
         }
         addMarkerListener()
@@ -387,10 +387,7 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
 
     fun setMarkerIcon() {
         mOrsay?.let {
-            val bitmap = ResourceBitmapDescriptor.drawableToBitmap(
-                this,
-                ContextCompat.getDrawable(this, R.drawable.badge_tr)
-            )
+            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.badge_tr)
             val bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(bitmap)
             mOrsay?.setIcon(bitmapDescriptor)
         }
@@ -404,38 +401,38 @@ class MarkerDemoActivity : AppCompatActivity(), OnMapReadyCallback {
             var tilt = 0f
             if (edtCameraLng.text.isNotEmpty() && edtCameraLat.text.isNotEmpty()) {
                 latLng =
-                    LatLng(
-                        (edtCameraLat.text.toString()).toDouble(),
-                        (edtCameraLng.text.toString()).toDouble()
-                    )
+                        LatLng(
+                                (edtCameraLat.text.toString()).toDouble(),
+                                (edtCameraLng.text.toString()).toDouble()
+                        )
             }
             if (edtCameraZoom.text.isNotEmpty()) {
                 zoom =
-                    (edtCameraZoom.text.toString()).toFloat()
+                        (edtCameraZoom.text.toString()).toFloat()
             }
             if (edtCameraBearing.text.isNotEmpty()) {
                 bearing =
-                    (edtCameraBearing.text.toString()).toFloat()
+                        (edtCameraBearing.text.toString()).toFloat()
             }
             if (edtCameraTilt.text.isNotEmpty()) {
                 tilt =
-                    (edtCameraTilt.text.toString()).toFloat()
+                        (edtCameraTilt.text.toString()).toFloat()
             }
             val cameraPosition =
-                CameraPosition.builder().target(latLng).zoom(zoom).bearing(bearing).tilt(tilt)
-                    .build()
+                    CameraPosition.builder().target(latLng).zoom(zoom).bearing(bearing).tilt(tilt)
+                            .build()
             val cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition)
             hMap?.moveCamera(cameraUpdate)
         } catch (e: IllegalArgumentException) {
             Log.e(
-                TAG,
-                "IllegalArgumentException $e"
+                    TAG,
+                    "IllegalArgumentException $e"
             )
             toast("IllegalArgumentException")
         } catch (e: NullPointerException) {
             Log.e(
-                TAG,
-                "NullPointerException $e"
+                    TAG,
+                    "NullPointerException $e"
             )
             toast("NullPointerException")
         }

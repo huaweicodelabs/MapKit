@@ -22,13 +22,13 @@ package com.huawei.mapkitsample
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.maps.HuaweiMap
 import com.huawei.hms.maps.HuaweiMap.*
 import com.huawei.hms.maps.OnMapReadyCallback
 import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.LatLng
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.R.string
 import com.huawei.mapkitsample.R.string.istappedText
 import com.huawei.mapkitsample.utils.Utill.toast
@@ -77,7 +77,7 @@ class EventsDemoActivity : AppCompatActivity(), OnMapClickListener,
         val newLatlng = hMap?.projection?.fromScreenLocation(point)
         toLatlng.text = "${getString(string.toLatLngText)}$newLatlng"
         val visibleRegion = hMap?.projection?.visibleRegion
-        LogM.i(TAG, visibleRegion.toString())
+        Log.i(TAG, visibleRegion.toString())
     }
 
     /**

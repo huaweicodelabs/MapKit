@@ -23,6 +23,7 @@ package com.huawei.mapkitsample
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.maps.CameraUpdateFactory
 import com.huawei.hms.maps.HuaweiMap
@@ -31,7 +32,6 @@ import com.huawei.hms.maps.SupportMapFragment
 import com.huawei.hms.maps.model.LatLng
 import com.huawei.hms.maps.model.Polyline
 import com.huawei.hms.maps.model.PolylineOptions
-import com.huawei.hms.maps.util.LogM
 import com.huawei.mapkitsample.R.string.TagNullText
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsEdit
 import com.huawei.mapkitsample.utils.CheckUtils.checkIsRight
@@ -157,7 +157,7 @@ class PolylineDemoActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(paramHuaweiMap: HuaweiMap) {
-        LogM.i(TAG, "onMapReady: ")
+        Log.i(TAG, "onMapReady: ")
         hMap = paramHuaweiMap
         hMap?.apply {
             isMyLocationEnabled = true
@@ -178,7 +178,7 @@ class PolylineDemoActivity : AppCompatActivity(), OnMapReadyCallback {
               .color(Color.BLUE)
               .width(3f)
         )
-        hMap?.setOnPolylineClickListener { LogM.i(TAG, "onMapReady:onPolylineClick ") }
+        hMap?.setOnPolylineClickListener { Log.i(TAG, "onMapReady:onPolylineClick ") }
     }
     private fun removePolyline() {
         mPolyline?.remove()

@@ -27,10 +27,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.huawei.hms.maps.util.LogM
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() , View.OnClickListener {
@@ -101,69 +101,69 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btnCamera -> {
-                LogM.i(TAG, "onClick: cameraDemo")
+                Log.i(TAG, "onClick: cameraDemo")
                 startActivity<CameraDemoActivity>(this)
             }
             R.id.btnBasicMap -> {
-                LogM.i(TAG, "onClick: BasicMap")
+                Log.i(TAG, "onClick: BasicMap")
                 startActivity<BasicMapDemoActivity>(this)
             }
             R.id.btnGestureDemo -> {
-                LogM.i(TAG, "onClick: GestureDemoActivity")
+                Log.i(TAG, "onClick: GestureDemoActivity")
                 startActivity<GestureDemoActivity>(this)
             }
             R.id.btnControlsDemo -> {
-                LogM.i(TAG, "onClick: ControlsDemoActivity")
+                Log.i(TAG, "onClick: ControlsDemoActivity")
                 startActivity<ControlsDemoActivity>(this)
             }
             R.id.btnCircleDemo -> {
-                LogM.i(TAG, "onClick: CircleDemoActivity")
+                Log.i(TAG, "onClick: CircleDemoActivity")
                 startActivity<CircleDemoActivity>(this)
             }
             R.id.btnPolygonDemo -> {
-                LogM.i(TAG, "onClick: PolygonDemoActivity")
+                Log.i(TAG, "onClick: PolygonDemoActivity")
                 startActivity<PolygonDemoActivity>(this)
             }
 
             R.id.btnPolylineDemo -> {
-                LogM.i(TAG, "onClick: PolylineDemoActivity")
+                Log.i(TAG, "onClick: PolylineDemoActivity")
                 startActivity<PolylineDemoActivity>(this)
             }
             R.id.btnGroudOverlayDemo -> {
-                LogM.i(TAG, "onClick: GroundOverlayDemoActivity")
+                Log.i(TAG, "onClick: GroundOverlayDemoActivity")
                 startActivity<GroundOverlayDemoActivity>(this)
             }
             R.id.btnLiteModeDemo -> {
-                LogM.i(TAG, "onClick: LiteModeDemoActivity")
+                Log.i(TAG, "onClick: LiteModeDemoActivity")
                 startActivity<LiteModeDemoActivity>(this)
             }
             R.id.btnMoreLanguageDemo -> {
-                LogM.i(TAG, "onClick: MoreLanguageDemoActivity")
+                Log.i(TAG, "onClick: MoreLanguageDemoActivity")
                 startActivity<MoreLanguageDemoActivity>(this)
             }
             R.id.btnMapFunctions -> {
-                LogM.i(TAG, "onClick: MapFunctionsDemoActivity")
+                Log.i(TAG, "onClick: MapFunctionsDemoActivity")
                 startActivity<MapFunctionsDemoActivity>(this)
             }
             R.id.btnAddMarkerDemo -> {
-                LogM.i(TAG, "onClick: AddMarkerDemo")
+                Log.i(TAG, "onClick: AddMarkerDemo")
                 startActivity<MarkerDemoActivity>(this)
             }
 
             R.id.btnEventsDemo -> {
-                LogM.i(TAG, "onClick: EventsDemo")
+                Log.i(TAG, "onClick: EventsDemo")
                 startActivity<EventsDemoActivity>(this)
             }
             R.id.btnMapStyle -> {
-                LogM.i(TAG, "onClick: StyleMapDemoActivity")
+                Log.i(TAG, "onClick: StyleMapDemoActivity")
                 startActivity<StyleMapDemoActivity>(this)
             }
             R.id.btnLocationSourceDemo -> {
-                LogM.i(TAG, "onClick: LocationSourceDemo")
+                Log.i(TAG, "onClick: LocationSourceDemo")
                 startActivity<LocationSourceDemoActivity>(this)
             }
             R.id.btnRoutePlanningDemo -> {
-                LogM.i(TAG, "onClick: RoutePlanningDemoActivity")
+                Log.i(TAG, "onClick: RoutePlanningDemoActivity")
                 startActivity<RoutePlanningDemoActivity>(this)
             }
         }
