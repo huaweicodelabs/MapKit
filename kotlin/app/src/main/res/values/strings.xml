@@ -1,28 +1,3 @@
 <resources>
-    <string name="app_name">MapKitDemo</string>
-    <string name="title_activity_main">Huawei Map Demo</string>
-    <string name="styled_map">StyledMap</string>
-    <string name="tap_instructions">Tap or long press on the map</string>
-    <string name="toLatlng">screen Point to latLng</string>
-    <string name="toPoint">latLngscreen to Point</string>
-    <string name="move_the_camera">Move the camera</string>
-    <string name="circleRadiusText">Circle radius is</string>
-    <string name="circleCenterText">Circle center is</string>
-    <string name="circleFillColorText">Circle fill color is </string>
-    <string name="circleStrokeColorText">Circle stroke color is</string>
-    <string name="circleStrokeWidthText">Circle stroke width is</string>
-    <string name="pointText">point=</string>
-    <string name="istappedText">is tapped</string>
-    <string name="pointToPoint">to point, point=</string>
-    <string name="toLatLngText">to latlng, latlng=</string>
-    <string name="longPressedText">long pressed, point=</string>
-    <string name="overlaytagisText">long pressed, point=</string>
-    <string name="filePathText">/data/data/com.huawei.hms.maps.demo/niuyouguo.jpg</string>
-    <string name="PolygonColorText">Polygon color is </string>
-    <string name="CircleWidthText">Circle width is  </string>
-    <string name="TagNullText">Tag is null  </string>
-
-
-
-
+    <string name="app_name">hmsMapDemo</string>
 </resources>
