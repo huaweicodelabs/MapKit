@@ -1,0 +1,74 @@
+{
+  "app": {
+    "bundleName": "com.huawei.harmony.maps.codelab",
+    "vendor": "huawei",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    },
+    "apiVersion": {
+      "compatible": 3,
+      "target": 3
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.huawei.harmony.maps.codelab",
+    "name": ".MyApplication",
+    "mainAbility": "com.huawei.harmony.maps.codelab.MainAbility",
+    "deviceType": [
+      "phone",
+      "wearable"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": false
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "com.huawei.harmony.maps.codelab.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:entry_MainAbility",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ],
+    "allowClassMap": true,
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+        "reason": "access internet",
+        "usedScene": {
+          "ability": [
+            "com.huawei.harmony.maps.codelab.MainAbility"
+          ],
+          "when": "always"
+        }
+      },
+      {
+        "name": "ohos.permission.GET_NETWORK_INFO",
+        "reason": "GET_NETWORK_INFO",
+        "usedScene": {
+          "ability": [
+            "com.huawei.harmony.maps.codelab.MainAbility"
+          ],
+          "when": "always"
+        }
+      }
+    ]
+  }
+}
