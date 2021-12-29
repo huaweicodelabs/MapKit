@@ -19,20 +19,23 @@ import ohos.agp.components.element.ShapeElement;
 import ohos.agp.window.dialog.ToastDialog;
 
 public class MainAbilitySlice extends AbilitySlice {
+    /**
+     * Declare a MapView object.
+     */
+    private MapView mMapView;
 
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
         CommonContext.setContext(this);
 
-        // Declaring MapView Objects
-        MapView mMapView;
-
-        // 初始化MapView对象
+        // Initialize MapView Object.
         mMapView = new MapView(this);
+
+        // Creating a MapView
         mMapView.onCreate();
 
-        // Initializing MapView Objects
+        // Obtains the HuaweiMap object.
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(HuaweiMap huaweiMap) {
@@ -46,7 +49,7 @@ public class MainAbilitySlice extends AbilitySlice {
             }
         });
 
-        // Creating a Layout
+        // Create a layout.
         ComponentContainer.LayoutConfig config = new ComponentContainer.LayoutConfig(ComponentContainer.LayoutConfig.MATCH_PARENT, ComponentContainer.LayoutConfig.MATCH_PARENT);
         PositionLayout myLayout = new PositionLayout(this);
         myLayout.setLayoutConfig(config);
@@ -54,18 +57,48 @@ public class MainAbilitySlice extends AbilitySlice {
         element.setShape(ShapeElement.RECTANGLE);
         element.setRgbColor(new RgbColor(255, 255, 255));
 
-        // Load MapView
+        // Load the MapView object.
         myLayout.addComponent(mMapView);
         super.setUIContent(myLayout);
     }
 
     @Override
-    public void onActive() {
+    protected void onActive() {
         super.onActive();
+        if (mMapView != null) {
+            mMapView.onResume();
+        }
     }
 
     @Override
-    public void onForeground(Intent intent) {
+    protected void onInactive() {
+        super.onInactive();
+        if (mMapView != null) {
+            mMapView.onPause();
+        }
+    }
+
+    @Override
+    protected void onBackground() {
+        super.onBackground();
+        if (mMapView != null) {
+            mMapView.onStop();
+        }
+    }
+
+    @Override
+    protected void onForeground(Intent intent) {
         super.onForeground(intent);
+        if (mMapView != null) {
+            mMapView.onStart();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mMapView != null) {
+            mMapView.onDestroy();
+        }
     }
 }
